@@ -24,7 +24,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 #https://install.speedtest.net/app/cli/ookla-speedtest-1.2.0-linux-aarch64.tgz
 
 RUN curl -s https://packagecloud.io/install/repositories/ookla/speedtest-cli/script.deb.sh | bash && \
-    sed 's/nobel/jammy/g' /etc/apt/sources.list.d/ookla_speedtest-cli.list && \
+    sed 's/noble/jammy/g' /etc/apt/sources.list.d/ookla_speedtest-cli.list && \
     apt-get update && apt-get install speedtest
 
 
