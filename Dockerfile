@@ -39,7 +39,7 @@ RUN apt-get update && apt-get install -y \
     rm -rf /var/lib/apt/lists/* 
 
 # do pip installs 
-RUN pip3 --break-system-packages install pytz influxdb-client requests
+RUN pip3 install pytz influxdb-client requests
 #datetime json os subprocess time socket sys
     
 # Environment vars
