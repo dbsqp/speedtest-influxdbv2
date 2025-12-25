@@ -35,8 +35,12 @@ RUN apt-get update && apt-get install -y \
     python3-setuptools \
     python3-pip \
     python3-virtualenv \
+    python3-venv \
     --no-install-recommends && \
     rm -rf /var/lib/apt/lists/* 
+
+# set venv
+RUN python3 -m venv docker && source docker/bin/activate
 
 # do pip installs 
 RUN pip3 install pytz influxdb-client requests
