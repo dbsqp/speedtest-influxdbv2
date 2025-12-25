@@ -41,7 +41,7 @@ RUN apt-get update && apt-get install -y \
 
 # set venv
 RUN python3 -m venv docker_env
-RUN source docker_env/bin/activate
+RUN . docker_env/bin/activate
 
 # do pip installs 
 RUN pip3 install pytz influxdb-client requests
