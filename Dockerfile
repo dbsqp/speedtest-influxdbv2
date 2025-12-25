@@ -30,7 +30,7 @@ RUN curl -s https://packagecloud.io/install/repositories/ookla/speedtest-cli/scr
 
 # Setup external package-sources
 RUN apt-get update && apt-get install -y \
-    python3-full \
+    python3 \
     python3-dev \
     python3-setuptools \
     python3-pip \
@@ -39,7 +39,7 @@ RUN apt-get update && apt-get install -y \
     rm -rf /var/lib/apt/lists/* 
 
 # do pip installs 
-RUN pip3 install pytz influxdb-client requests
+RUN pip3 --break-system-packages install pytz influxdb-client requests
 #datetime json os subprocess time socket sys
     
 # Environment vars
