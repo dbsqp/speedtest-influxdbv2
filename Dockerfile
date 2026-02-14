@@ -44,8 +44,6 @@ RUN python3 -m venv docker_env
 RUN . docker_env/bin/activate
 
 # do pip installs 
-
-RUN python3 -m ensurepip
 RUN pip3 install pytz influxdb-client requests
 #datetime json os subprocess time socket sys
 
