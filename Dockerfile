@@ -44,9 +44,11 @@ RUN python3 -m venv docker_env
 RUN . docker_env/bin/activate
 
 # do pip installs 
-RUN pip3 install pytz influxdb-client requests
+#RUN pip3 install pytz influxdb-client requests
 #datetime json os subprocess time socket sys
-    
+
+RUN apt-get install -y python3-pytz python3-influxdb-client python3-requests
+
 # Environment vars
 ENV PYTHONIOENCODING=utf-8
 
