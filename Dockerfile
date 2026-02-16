@@ -43,6 +43,8 @@ RUN apt-get update && apt-get install -y \
 RUN python3 -m venv docker_env
 RUN . docker_env/bin/activate
 
+RUN python3 -m venv --system-site-packages /usr/local
+
 # do pip installs 
 RUN pip3 install pytz influxdb-client requests
 #datetime json os subprocess time socket sys
