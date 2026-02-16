@@ -121,14 +121,16 @@ speedtest_server_host = results["server"]["host"]
 
 # Print results to Docker logs
 if expected_down:
-    percent_down = ( 100.0 * speed_down / float(expected_down) ) - 100.0
-    print("download %.1f mbps = %+.1f of %.0f mbps" % (speed_down,percent_down,float(expected_down)))
+    percent_down = 100.0 * speed_down / float(expected_down)
+    delta_percent_down = percent_down - 100.0
+    print("download %.1f mbps = %5.1f %% of %.0f mbps = %+.1f %%" % (speed_down,percent_down,float(expected_down),delta_percent_down))
 else:
     print("download %.1f mbps" % (speed_down))
 
 if expected_up:
-    percent_up = ( 100.0 * speed_up / float(expected_up) ) - 100.0
-    print("  upload %.1f mbps = %+.1f of %.0f mbps" % (speed_up,percent_up,float(expected_up)))
+    percent_up = 100.0 * speed_up / float(expected_up)
+	delta_percent_up = percent_up - 100.0
+    print("  upload %.1f mbps = %5.1f %% of %.0f mbps = %+.1f %%" % (speed_up,percent_up,float(expected_up),delta_percent_up))
 else:
     print("  upload %.1f mbps" % (speed_up))
 
@@ -157,6 +159,7 @@ senddata["fields"]["data-rate"]=speed_down
 
 if expected_down:
     senddata["fields"]["percent"]=percent_down
+    senddata["fields"]["delta"]=delta_percent_down
     senddata["fields"]["expected"]=float(expected_down)
 
 if debug:
@@ -178,6 +181,7 @@ senddata["fields"]["data-rate"]=speed_up
 
 if expected_up:
     senddata["fields"]["percent"]=percent_up
+    senddata["fields"]["delta"]=delta_percent_up
     senddata["fields"]["expected"]=float(expected_up)
 
 if debug:
