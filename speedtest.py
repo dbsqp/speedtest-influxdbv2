@@ -129,7 +129,7 @@ else:
 
 if expected_up:
     percent_up = 100.0 * speed_up / float(expected_up)
-	delta_percent_up = percent_up - 100.0
+    delta_percent_up = percent_up - 100.0
     print("  upload %.1f mbps = %5.1f %% of %.0f mbps = %+.1f %%" % (speed_up,percent_up,float(expected_up),delta_percent_up))
 else:
     print("  upload %.1f mbps" % (speed_up))
